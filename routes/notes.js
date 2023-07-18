@@ -21,18 +21,18 @@ notes.post("/notes", (req, res) => {
 
     // --- STORE NEW NOTE IN DB ---
     // Obtain existing notes
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("./db/db.json", "utf-8", (err, data) => {
       if (err) {
         console.error(err);
       } else {
         // Convert string of notes to JSON object
-        const parsedNotes = JSON.parse(data);
+        const savedNotes = JSON.parse(data);
 
         // Add the new note to the object
-        parsedNotes.push(newNote);
+        savedNotes.push(newNote);
 
         // Write to file the combined notes
-        fs.writeFile("./db/db.json", JSON.stringify(), (error) =>
+        fs.writeFile("./db/db.json", JSON.stringify(savedNotes), (error) =>
           error
             ? console.log(error)
             : console.log("Successfully updated notes in db.")

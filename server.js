@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
 // Import the api router
-const api = require("./public/assets/js/index");
-const PORT = process.env.PORT || 3001;
+const api = require("./routes/index");
+const PORT = 3001;
 const app = express();
 
 // Middleware - Locate/use everything in 'public' dir
