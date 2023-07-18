@@ -2,13 +2,13 @@ const notes = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
 const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
 
-// GET Route for /api/notes
-notes.get("/notes", (req, res) => {
+// GET Route for /api/notes - because /notes is included in index.js as the router, we can remove /notes from our requests
+notes.get("/", (req, res) => {
   readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route to store new data in db.json
-notes.post("/notes", (req, res) => {
+notes.post("/", (req, res) => {
   const { title, text } = req.body;
 
   // If title & text are submitted, create object for the new note
