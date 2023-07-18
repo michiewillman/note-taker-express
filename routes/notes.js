@@ -1,6 +1,6 @@
 const notes = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
-const fs = require("fs");
+const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
 
 // GET Route for /api/notes
 notes.get("/notes", (req, res) => {
@@ -11,7 +11,7 @@ notes.get("/notes", (req, res) => {
 notes.post("/notes", (req, res) => {
   const { title, text } = req.body;
 
-  // Create object for the user's input + generate random id for each note
+  // If title & text are submitted, create object for the new note
   if (req.body) {
     const newNote = {
       title,
@@ -19,36 +19,11 @@ notes.post("/notes", (req, res) => {
       id: uuidv4(),
     };
 
-    // --- STORE NEW NOTE IN DB ---
-    // Obtain existing notes
-    fs.readFile("./db/db.json", "utf-8", (err, data) => {
-      if (err) {
-        console.error(err);
-      } else {
-        // Convert string of notes to JSON object
-        const savedNotes = JSON.parse(data);
-
-        // Add the new note to the object
-        savedNotes.push(newNote);
-
-        // Write to file the combined notes
-        fs.writeFile("./db/db.json", JSON.stringify(savedNotes), (error) =>
-          error
-            ? console.log(error)
-            : console.log("Successfully updated notes in db.")
-        );
-      }
-    });
-
-    const response = {
-      status: "success",
-      body: newReview,
-    };
-
-    console.log(response);
-    res.status(201).json(response);
+    // Read saved notes from db, push new note to it and then write file again
+    readAndAppend(newNote, "./db/db.json");
+    res.json(`Note added successfully to database.`);
   } else {
-    res.status(500).json("Error in saving note");
+    res.error("Error in adding new note.");
   }
 });
 
