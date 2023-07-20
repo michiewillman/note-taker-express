@@ -2,12 +2,15 @@
 
 ## Description
 
-This Note Taker application uses an Express.js back end to write, save and retrieve user-inputed note data from a JSON file database.
+This Note Taker application uses an Express.js back end to write, save and retrieve user-inputed note data from a JSON file database. Users can enter text for the title and description of a note, and save it using the button in the top right corner. Added functionality to delete notes from the database has been included beyond the initial requirements.
+
+This application showcases the creation of REST api, endpoint routers and usage of HTTP protocols including GET, POST and DELETE requests. Api functionality has been tested via Postman and Insomnia, and the application is deployed on Heroku.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Deployment](#deployment)
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
@@ -15,10 +18,10 @@ This Note Taker application uses an Express.js back end to write, save and retri
 
 ## Installation
 
-Ypu can clone this repo from GitHub via SSH using the following command to use this application on your local machine.
+You can clone this repo from GitHub via SSH using the following command to use this application on your local machine.
 
 ```bash
-git clone git@github.com:michiewillman/README_Generator.git
+git clone git@github.com:michiewillman/note-taker-express.git
 ```
 
 Install the dependencies:
