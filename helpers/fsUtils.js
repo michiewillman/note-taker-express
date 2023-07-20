@@ -26,7 +26,15 @@ const readAndRemove = (content, file) => {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
-      parsedData.pop(content);
+
+      for (let i = 0; i < parsedData.length; i++) {
+        if (content === parsedData[i].id) {
+          parsedData.splice(content, 1);
+        } else {
+          return;
+        }
+      }
+
       writeToFile(file, parsedData);
     }
   });
