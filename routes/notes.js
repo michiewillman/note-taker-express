@@ -32,7 +32,7 @@ notes.post("/", (req, res) => {
 });
 
 notes.delete("/:id", (req, res) => {
-  const id = JSON.parse(req.params.id);
+  const id = req.params.id;
 
   if (id) {
     readAndRemove(id, "./db/db.json");
