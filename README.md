@@ -48,7 +48,7 @@ You can delete notes by clicking the trash can icon on the note you wish to dele
 
 # Deployment
 
-To view this application's deployment, [click here.](https://opensource.org/license/https://opensource.org/licenses/MIT)
+To view this application's deployment on Heroku, [click here.](https://mw-note-taker-76da78044dfa.herokuapp.com/)
 
 To view this application's code GitHub repository, [click here.](https://github.com/michiewillman/note-taker-express)
 
