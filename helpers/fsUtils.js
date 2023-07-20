@@ -25,18 +25,11 @@ const readAndRemove = (content, file) => {
     if (err) {
       console.error(err);
     } else {
-      const parsedData = JSON.parse(data);
+      let parsedData = JSON.parse(data);
 
-      for (let i = 0; i < parsedData.length; i++) {
-        if (content === parsedData[i].id) {
-          parsedData.splice(content, 1);
-          return parsedData;
-        } else {
-          return;
-        }
-      }
+      let newData = parsedData.filter((note) => note.id !== content);
 
-      writeToFile(file, parsedData);
+      writeToFile(file, newData);
     }
   });
 };
