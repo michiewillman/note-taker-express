@@ -1,6 +1,10 @@
 const notes = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
-const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+const {
+  readFromFile,
+  readAndAppend,
+  readAndRemove,
+} = require("../helpers/fsUtils");
 
 // GET Route for /api/notes - because /notes is included in index.js as the router, we can remove /notes from our requests
 notes.get("/", (req, res) => {
