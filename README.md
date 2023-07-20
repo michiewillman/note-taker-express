@@ -35,6 +35,20 @@ node server.js
 
 ## Usage
 
+Below are mockups of the application's usage.
+
+Write new notes and save as needed. The saved notes are displayed in the left column as shown here.
+![Screenshot of a series of notes saved](/Assets/Add-notes-screenshot.jpg)
+
+You can delete notes by clicking the trash can icon on the note you wish to delete. Press the + sign in the top right to write a new note.
+![Screenshot of new note screen with some notes deleted](/Assets/Write-screen-delete-screenshot.jpg)
+
+# Deployment
+
+To view this application's deployment, [click here.](https://opensource.org/license/https://opensource.org/licenses/MIT)
+
+To view this application's code GitHub repository, [click here.](https://github.com/michiewillman/note-taker-express)
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
