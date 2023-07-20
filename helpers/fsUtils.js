@@ -30,6 +30,7 @@ const readAndRemove = (content, file) => {
       for (let i = 0; i < parsedData.length; i++) {
         if (content === parsedData[i].id) {
           parsedData.splice(content, 1);
+          return parsedData;
         } else {
           return;
         }
