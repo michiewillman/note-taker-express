@@ -27,4 +27,22 @@ notes.post("/", (req, res) => {
   }
 });
 
+notes.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  const savedId = req.body.id;
+
+  if (id === savedId) {
+    const currentNote = {
+      title,
+      text,
+      id,
+    };
+
+    readAndRemove(currentNote, "./db/db.json");
+    res.json(`Note deleted successfully from database.`);
+  } else {
+    res.error("Error in adding new note.");
+  }
+});
+
 module.exports = notes;
